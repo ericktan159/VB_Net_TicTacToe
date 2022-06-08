@@ -13,9 +13,49 @@
     Dim Player_1_Score As Integer = 0
     Dim Player_2_Score As Integer = 0
 
+    Dim listTicTacToeBtn As New List(Of List(Of Button))
+    Dim ticTacToeBtnsRow_1 As New List(Of Button)
+    Dim ticTacToeBtnsRow_2 As New List(Of Button)
+    Dim ticTacToeBtnsRow_3 As New List(Of Button)
+
+
+    Private Sub initializeListTicTacToeBtn()
+        ticTacToeBtnsRow_1.Add(A1)
+        ticTacToeBtnsRow_1.Add(A2)
+        ticTacToeBtnsRow_1.Add(A3)
+
+        ticTacToeBtnsRow_2.Add(B1)
+        ticTacToeBtnsRow_2.Add(B2)
+        ticTacToeBtnsRow_2.Add(B3)
+
+        ticTacToeBtnsRow_3.Add(C1)
+        ticTacToeBtnsRow_3.Add(C2)
+        ticTacToeBtnsRow_3.Add(C3)
+
+        listTicTacToeBtn.Add(ticTacToeBtnsRow_1)
+        listTicTacToeBtn.Add(ticTacToeBtnsRow_2)
+        listTicTacToeBtn.Add(ticTacToeBtnsRow_3)
+
+        Return
+    End Sub
+
+
+    Private Sub testingListTicTacToeBtn()
+        initializeListTicTacToeBtn()
+
+        If (listTicTacToeBtn(1)(1).Equals(B2)) Then
+            MessageBox.Show("YES!!!")
+        Else
+            MessageBox.Show("No......")
+
+        End If
+    End Sub
+
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         initiator()
+        'testingListTicTacToeBtn()
     End Sub
 
     Private Sub eventBtnClick_TicTacToeBtns(sender As Object, e As EventArgs) Handles C3.Click, C2.Click, C1.Click, B3.Click, B2.Click, B1.Click, A3.Click, A2.Click, A1.Click
@@ -212,6 +252,8 @@
 
 
     End Function
+
+
 
     Private Sub event_MenuStrpClick_NewGame(sender As Object, e As EventArgs) Handles NewGameToolStripMenuItem.Click
         turn = True
